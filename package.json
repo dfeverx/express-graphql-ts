@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Boilerplate code to start a express graphql server usign typescript",
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon",
+    "build": "tsc --build"
   },
   "repository": {
     "type": "git",
