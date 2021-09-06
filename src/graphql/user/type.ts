@@ -2,26 +2,25 @@ import { gql } from 'apollo-server-express';
 
 const typeDefs = gql`
   type Query {
-    User(id: String!): User!
-    # Users: [User!]!
+    user(id: ID!): User!
+    users: [User!]!
   }
 
-  # type Mutation {
-  #   storeUser( User: UserInput!): User!
-  #   updateUser(id: ID!, User: UserInput!): User!
-  #   deleteUser(id: ID!): Boolean!
-  # }
+  type Mutation {
+    storeUserFake( user: UserInput!): User!
+    updateUserFake(id: ID!, user: UserInput!): User!
+    deleteUserFake(id: ID!): Boolean!
+  }
 
   type User{
-    # id: ID!
+    id: ID!
     name:String
-    occupation:[String]
-  
+    job:String
   }
 
   input UserInput {
-    name:String
-    occupation:[String]
+   name:String
+   job:String
   }
 `;
 

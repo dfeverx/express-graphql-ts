@@ -1,16 +1,19 @@
 
+const dummyData = [{ id: "507f191e810c19729de860ea", name: "john doe", job: "dev" },
+{ id: "507f191e810c19729de860eb", name: "jonny doe", job: "dev" },]
+
 
 const resolvers = {
     Query: {
-        User: (parent: any, { id }: { id: String }) => { return { id: "", name: "john doe", occupation: ["dev"] } },
-        // Users: (parent: any) => findAll(),
+        user: (parent: any, { id }: { id: String }) => { return dummyData.find(item => item.id == id) },
+        users: (parent: any) => { return dummyData },
     },
 
-    // Mutation: {
-    //     storeUser: (parent: any, { User }: { User: IUser }) => store(User),
-    //     updateUser: (parent: any, { id, User }: { id: Schema.Types.ObjectId, User: IUser }) => update(id, User),
-    //     deleteUser: (parent: any, { id }: { id: Schema.Types.ObjectId }) => deleteOne(id),
-    // },
+    Mutation: {
+        storeUserFake: (parent: any, { user }: { user: any }) => { return user },
+        updateUserFake: (parent: any, { id, user }: { id: String, user: any }) => { return user },
+        deleteUserFake: (parent: any, { id }: { id: String }) => { return true },
+    },
 };
 
 export { resolvers };
